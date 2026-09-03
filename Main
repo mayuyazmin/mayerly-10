@@ -1,0 +1,56 @@
+package Polimorfismo;
+import java.util.ArrayList;
+public class Main {
+	public static void main(String[] args) {
+
+		Guerrero aldo = new Guerrero("Aldo", 5, 100, 20, "Espada");
+		Guerrero kai = new Guerrero("Kai", 4, 90, 25, "Hacha");
+
+		Mago jorge = new Mago("jorge", 6, 990, 21, "bola de fuego");
+		Mago luis = new Mago("luis", 8, 100, 11, "rafaga de aire");
+
+		Personaje enemigo = new Personaje("Sebas", 10, 200, 15);
+
+		// ═══════════════════════════════════════════════════════════════
+		// ESCENA 1: SIN POLIMORFISMO
+		// ═══════════════════════════════════════════════════════════════
+
+		System.out.println("=== SIN POLIMORFISMO ===");
+		aldo.atacar(enemigo);
+		kai.atacar(enemigo);
+		jorge.atacar(enemigo);
+		luis.atacar(enemigo);
+
+		System.out.println("\n=== CON POLIMORFISMO ===");
+		// ═══════════════════════════════════════════════════════════════
+		// ESCENA 2: CON POLIMORFISMO
+		// ═══════════════════════════════════════════════════════════════
+
+		ArrayList<Personaje> Personajes = new ArrayList<>();
+		Personajes.add(aldo);
+		Personajes.add(kai);
+		Personajes.add(jorge);
+		Personajes.add(luis);
+
+
+		for (Personaje p : Personajes) {
+			p.atacar(enemigo);
+		}
+		System.out.println("\n=== ESTADO DEL EJÉRCITO ===") ;
+
+		for (Personaje p : Personajes) {
+			System.out.println("\n") ;
+
+			p.mostrarInfo();
+		}
+		// ═══════════════════════════════════════════════════════════════
+		// ESCENA 3: MOSTRAR EL ESTADO DEL EJÉRCITO
+		// ═══════════════════════════════════════════════════════════════
+		// Con el mismo ejercito de arriba, recorrelo con otro for y llamá
+		// a mostrarInfo() de cada uno. Fijate que también acá el polimorfismo
+		// actúa: los Guerreros muestran su arma, y los Magos su hechizo.
+
+	
+
+	}
+}
